@@ -21,5 +21,6 @@
 
 ## Current State
 
-- Static component class for styling the NFTs
-- Dynamic component class to highlight the selected
+- Define the scenes
+- Map the scenes
+- Change scenes and keep track of the current one

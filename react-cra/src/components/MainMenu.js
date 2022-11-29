@@ -1,10 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { userSession } from './ConnectWallet';
+import { PlayGame } from './PlayGame';
 
 export const MainMenu = () => {
   const [NFTsOwned, setNFTsOwned] = useState([]);
   const [hasRespondedNFTs, setHasRespondedNFTs] = useState(false);
   const [selectedNFT, setSelectedNFT] = useState('');
+  const [menuPage, setMenuPage] = useState('MainMenu');
 
   function disconnect() {
     userSession.signUserOut('/');
@@ -54,38 +56,52 @@ export const MainMenu = () => {
   const handleClickNFT = (id) => {
     changeSelection(id, selectedNFT);
     setSelectedNFT(id);
-    alert(`sleected NFT: ${id}`);
   };
 
-  return (
-    <div>
-      <header className="App-header">
-        <h1>NFT Web App Integration</h1>
-        <h6>{`Current user address: ${userAddress}`}</h6>
+  const handlePlayGame = (id) => {
+    console.log('selected NFT:', id);
+    localStorage.setItem('selectedNFT', id);
+    setMenuPage('Game');
+  };
 
-        {!hasRespondedNFTs && <h1> Loading NFTs... </h1>}
-        {hasRespondedNFTs && NFTsOwned.length == 0 && <h1> No NFTs available </h1>}
-        {hasRespondedNFTs && NFTsOwned.length > 0 && (
-          <div>
-            <h2>Pick your NFT!</h2>
-            {NFTsOwned.map((nftId) => (
-              <span id={`nft${nftId}`} key={nftId} className="characterContainer">
-                <img
-                  className="characterImg"
-                  src={`https://stacksgamefi.mypinata.cloud/ipfs/QmS57rKdQB7ioMsg5PNUdyzzQnZpfzPZF5G63E1xkGci4w/${nftId}.png`}
-                  alt={`duck ${nftId}`}
-                  width="100"
-                  onClick={() => handleClickNFT(nftId)}
-                ></img>
-              </span>
-            ))}
-          </div>
-        )}
+  const menuPageMapping = {
+    MainMenu: (
+      <div>
+        <header className="App-header">
+          <h1>NFT Web App Integration</h1>
+          <h6>{`Current user address: ${userAddress}`}</h6>
 
-        <button className="Connect" onClick={disconnect}>
-          Disconnect Wallet
-        </button>
-      </header>
-    </div>
-  );
+          {!hasRespondedNFTs && <h1> Loading NFTs... </h1>}
+          {hasRespondedNFTs && NFTsOwned.length == 0 && <h1> No NFTs available </h1>}
+          {hasRespondedNFTs && NFTsOwned.length > 0 && (
+            <div>
+              <h2>Pick your NFT!</h2>
+              {NFTsOwned.map((nftId) => (
+                <span id={`nft${nftId}`} key={nftId} className="characterContainer">
+                  <img
+                    className="characterImg"
+                    src={`https://stacksgamefi.mypinata.cloud/ipfs/QmS57rKdQB7ioMsg5PNUdyzzQnZpfzPZF5G63E1xkGci4w/${nftId}.png`}
+                    alt={`duck ${nftId}`}
+                    width="100"
+                    onClick={() => handleClickNFT(nftId)}
+                  ></img>
+                </span>
+              ))}
+            </div>
+          )}
+
+          <button className="Connect" disabled={selectedNFT == ''} onClick={() => handlePlayGame(selectedNFT)}>
+            {`Play with NFT#${selectedNFT}`}
+          </button>
+          <br />
+          <button className="Connect" onClick={disconnect}>
+            Disconnect Wallet
+          </button>
+        </header>
+      </div>
+    ),
+    Game: <PlayGame menuPage={menuPage} setMenuPage={setMenuPage} />,
+  };
+
+  return menuPageMapping[menuPage];
 };
