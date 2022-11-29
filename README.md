@@ -21,6 +21,6 @@
 
 ## Current State
 
-- Prettier configured
-- Startup file updated
-- ConnectWallet & MainMenu developed
+- Stacks API URL
+- Function to fetch a JSON from the API
+- Function to get IDs of the owned NFTs from the JSON
