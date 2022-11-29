@@ -1,0 +1,16 @@
+{
+    "sip": 16,
+    "name": "Duck#912",
+    "image": "ipfs://QmS57rKdQB7ioMsg5PNUdyzzQnZpfzPZF5G63E1xkGci4w/912.png",
+    "attributes": [
+      {
+        "trait_type": "Color",
+        "value": "Pink"
+      }
+    ],
+    "properties": {
+      "image_game": "ipfs://Qmd6mjXARXZcCvdDPeisAHMEQgKW4aw85rktZ5yFAKYNbP/912.png",
+      "collection": "Workshop NFTs Integration"
+    }
+  }
+  
