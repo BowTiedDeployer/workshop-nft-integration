@@ -11,8 +11,15 @@
   - add the game as a scene to the react app
   - integrate the image of the selected NFT into the game
 
-## Starting Files and Folders
+## Current Files and Folders
 
 - `jsons-and-images` contains the images and JSONS for the NFTs
 - `game` contains the initial basic game
 - `main-menu` contains css styling files for the main menu
+- `clarity-nft` contains the NFT smart contract
+
+## Current State
+
+- created the NFT smart contract
+- requested STX and deployed smart contract on testnet using the Stacks explorer sandbox interface
+- claimed NFT using the Stacks explorer sandbox interface
