@@ -17,9 +17,9 @@
 - `game` contains the initial basic game
 - `main-menu` contains css styling files for the main menu
 - `clarity-nft` contains the NFT smart contract
+- `react-cra` contains the basic react dapp that will be developed
 
 ## Current State
 
-- created the NFT smart contract
-- requested STX and deployed smart contract on testnet using the Stacks explorer sandbox interface
-- claimed NFT using the Stacks explorer sandbox interface
+- picked the framework wanted - react
+- created the basic react dapp
