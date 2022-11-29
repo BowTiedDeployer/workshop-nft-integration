@@ -21,6 +21,9 @@
 
 ## Current State
 
-- Define the scenes
-- Map the scenes
-- Change scenes and keep track of the current one
+- Install dependencies
+- Insert game mechanics
+- Update the game script to match the integration in the DAPP
+- Render selected NFT as the character
+- Parse the page mapping states
+- Return to main menu from the game
