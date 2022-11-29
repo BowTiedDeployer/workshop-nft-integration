@@ -21,5 +21,6 @@
 
 ## Current State
 
-- picked the framework wanted - react
-- created the basic react dapp
+- Prettier configured
+- Startup file updated
+- ConnectWallet & MainMenu developed

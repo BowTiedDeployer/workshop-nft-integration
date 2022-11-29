@@ -1,17 +1,18 @@
-import React from "react";
-import { AppConfig, showConnect, UserSession } from "@stacks/connect";
+import React, { useState, useEffect } from 'react';
+import { AppConfig, showConnect, UserSession } from '@stacks/connect';
+import { MainMenu } from './MainMenu';
 
-const appConfig = new AppConfig(["store_write", "publish_data"]);
+const appConfig = new AppConfig(['store_write', 'publish_data']);
 
 export const userSession = new UserSession({ appConfig });
 
 function authenticate() {
   showConnect({
     appDetails: {
-      name: "Stacks React Starter",
-      icon: window.location.origin + "/logo512.png",
+      name: 'NFT Web App Integration',
+      icon: window.location.origin + '/logo512.png',
     },
-    redirectTo: "/",
+    redirectTo: '/',
     onFinish: () => {
       window.location.reload();
     },
@@ -19,27 +20,25 @@ function authenticate() {
   });
 }
 
-function disconnect() {
-  userSession.signUserOut("/");
-}
-
 const ConnectWallet = () => {
-  if (userSession.isUserSignedIn()) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  if (mounted && userSession.isUserSignedIn()) {
     return (
       <div>
-        <button className="Connect" onClick={disconnect}>
-          Disconnect Wallet
-        </button>
-        <p>mainnet: {userSession.loadUserData().profile.stxAddress.mainnet}</p>
-        <p>testnet: {userSession.loadUserData().profile.stxAddress.testnet}</p>
+        <MainMenu />
       </div>
     );
   }
 
   return (
-    <button className="Connect" onClick={authenticate}>
-      Connect Wallet
-    </button>
+    <header className="App-header">
+      <h1>NFT Web App Integration</h1>
+      <button className="Connect" onClick={authenticate}>
+        Connect Wallet
+      </button>
+    </header>
   );
 };
 
