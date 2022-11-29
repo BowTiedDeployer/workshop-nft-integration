@@ -4,6 +4,7 @@ import { userSession } from './ConnectWallet';
 export const MainMenu = () => {
   const [NFTsOwned, setNFTsOwned] = useState([]);
   const [hasRespondedNFTs, setHasRespondedNFTs] = useState(false);
+  const [selectedNFT, setSelectedNFT] = useState('');
 
   function disconnect() {
     userSession.signUserOut('/');
@@ -45,6 +46,17 @@ export const MainMenu = () => {
     setInterval(() => {}, 30000);
   }, [fetchNFTsOwned]);
 
+  const changeSelection = (nftId, localSelectedNFT) => {
+    document.getElementById(`nft${localSelectedNFT}`)?.classList.remove('card-selected');
+    document.getElementById(`nft${nftId}`)?.classList.add('card-selected');
+  };
+
+  const handleClickNFT = (id) => {
+    changeSelection(id, selectedNFT);
+    setSelectedNFT(id);
+    alert(`sleected NFT: ${id}`);
+  };
+
   return (
     <div>
       <header className="App-header">
@@ -57,11 +69,13 @@ export const MainMenu = () => {
           <div>
             <h2>Pick your NFT!</h2>
             {NFTsOwned.map((nftId) => (
-              <span id={`nft${nftId}`} key={nftId}>
+              <span id={`nft${nftId}`} key={nftId} className="characterContainer">
                 <img
+                  className="characterImg"
                   src={`https://stacksgamefi.mypinata.cloud/ipfs/QmS57rKdQB7ioMsg5PNUdyzzQnZpfzPZF5G63E1xkGci4w/${nftId}.png`}
                   alt={`duck ${nftId}`}
                   width="100"
+                  onClick={() => handleClickNFT(nftId)}
                 ></img>
               </span>
             ))}

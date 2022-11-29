@@ -21,6 +21,5 @@
 
 ## Current State
 
-- States to know when to update the data
-- Waiting for results
-- Rendering based on the state
+- Static component class for styling the NFTs
+- Dynamic component class to highlight the selected

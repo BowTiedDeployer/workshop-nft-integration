@@ -1,0 +1,136 @@
+.card {
+  color: white;
+  padding: 5px;
+}
+
+.cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.card-selected {
+  border-width: 2px;
+  background-color: #ffe883;
+}
+
+.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.card-body {
+  background-color: #fdcf00;
+}
+.card-lead {
+  color: #7530e3;
+}
+.lead {
+  color: #7530e3;
+}
+.characterImg {
+  display: block;
+  width: 90px;
+}
+.characterContainer {
+  display: inline-block;
+  padding: 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+}
+.nftContainer {
+  display: inline-block;
+  color: white;
+  padding: 7px;
+}
+.nftImg {
+  display: block;
+  color: white;
+}
+@media (min-width: 0px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 30%;
+  }
+  .nftContainer {
+    width: 30%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
+@media (min-width: 420px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 23%;
+  }
+  .nftContainer {
+    width: 23%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
+@media (min-width: 600px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 20%;
+  }
+  .nftContainer {
+    width: 20%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
+@media (min-width: 600px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 15%;
+  }
+  .nftContainer {
+    width: 15%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
+@media (min-width: 900px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 10%;
+  }
+  .nftContainer {
+    width: 10%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
+@media (min-width: 1000px) {
+  .characterImg {
+    width: 100%;
+  }
+  .characterContainer {
+    width: 15%;
+  }
+  .nftContainer {
+    width: 8%;
+  }
+  .nftImg {
+    width: 100%;
+  }
+}
