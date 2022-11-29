@@ -21,6 +21,6 @@
 
 ## Current State
 
-- Stacks API URL
-- Function to fetch a JSON from the API
-- Function to get IDs of the owned NFTs from the JSON
+- States to know when to update the data
+- Waiting for results
+- Rendering based on the state
